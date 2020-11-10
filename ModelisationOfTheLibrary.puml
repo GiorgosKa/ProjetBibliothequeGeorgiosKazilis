@@ -1,0 +1,74 @@
+@startuml
+class Livre{
+    IdLivre
+}
+class Utilisateur{
+    IdUtilisateur
+    Nom
+    Prenom
+    Email
+    }
+enum Catégorie{
+    Library User,
+    Librarian
+    }
+Utilisateur --> "1" Catégorie
+Catégorie --> "1..*" Utilisateur
+
+
+
+class Appartient{
+    Date Debut
+    Date Fin
+    }
+
+
+Appartient --> "0..*" ListeRouge
+Appartient --> "0..*" Utilisateur
+
+
+class Emprunt{
+    Date Debut
+    Date Fin
+    }
+
+class Controleur
+
+
+Controleur -- "0..*\nutilisateurs" Utilisateur: " "
+
+Controleur ---- "0..*\nemprunts" Emprunt: "
+
+class Auteur{
+    IdAuteur
+    Nom
+    Prenom
+    Annee: Date
+    }
+
+class Oeuvre{
+    IdOevre
+    Title
+    Annee
+    }
+
+Auteur --> "1..*" Oeuvre
+
+class Edition{
+    ISBN
+    Editeur
+    Annee
+    }
+
+Oeuvre --> "1..*" Edition
+
+Edition --> "1..*" Livre
+
+Emprunt --> "0..*" Utlisateur
+
+Emprunt --> "0..1" Livre
+
+
+
+
+@enduml

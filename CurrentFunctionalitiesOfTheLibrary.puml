@@ -1,0 +1,15 @@
+@startuml
+'idea.partialRender
+(Login) .> LibraryUser : <<includes>>
+(Login) .> Librarian : <<includes>>
+LibraryUser -(View his/her Borrows)
+LibraryUser -- (View all the Books of the Library)
+LibraryUser --- (View all the Available Books of the Library)
+Librarian - (List all the Library Users and Librarians)
+Librarian -- (View the Red List)
+Librarian -- (Add a Library User to the Red List)
+Librarian --- (Remove a Library User from the Red List)
+Librarian --- (Add a new Library User or Librarian)
+Librarian --- (Add a new Book)
+Librarian --|> LibraryUser
+@enduml
